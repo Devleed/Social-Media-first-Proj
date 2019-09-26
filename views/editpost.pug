@@ -1,0 +1,31 @@
+extends home
+
+block content
+    .container.mycontainer
+        .sidebar
+            ul.items
+                a.sideitem(href="/account/"+user._id)
+                    i.fas.fa-address-card
+                    li.item #{user.name}
+                br
+                a.sideitem(href="/")
+                    i.fas.fa-book
+                    li.item NewsFeed 
+                br
+                a.sideitem(href="/user/messaging/"+user._id)
+                    i.fas.fa-comment
+                    li.item Messages
+                br
+                a.sideitem(href="/News"+user._id)
+                    i.fas.fa-bomb
+                    li.item Explore
+        .datadiv
+            form#statusform(method='POST' action='/post/edit/'+post._id)
+                div#statushead(style="border:2px solid #FB7200") 
+                    i.fas.fa-exclamation
+                    p Edit Post
+                textarea#edtstatus(name='status' cols='67' rows='2') #{post.body}
+                if post.image
+                    img.statimg.edtstatimg(src=post.image alt="post image")
+                br
+                button.edtstatusbtn(type='submit') Save

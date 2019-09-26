@@ -1,0 +1,20 @@
+extends home
+
+block content
+    input#demo(type="text" value=loggedUser.email style="display:none;")
+    #messagedUsers
+        each friend in allFriends
+            a#friendsmessages(href="/messages/"+friend.id)
+                li.friendlist #{friend.name}
+    .container
+        input#reciever(type="text" name="reciever")
+        #allmessages
+            if messagesRecived.length !== 0
+                each message in messagesRecived
+                    if message.sender === loggedUser.id
+                        .mesg.ownmesg #{message.messageBody}
+                    else
+                        .mesg #{message.messageBody}
+        .textMessage
+            textarea#textmessage(name="msg", cols="135", rows="5" style="resize: none;")
+            button#sendMessagebtn(dataid=loggedUser.id dataname=loggedUser.name) SEND

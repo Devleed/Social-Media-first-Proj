@@ -1,0 +1,65 @@
+extends home
+
+block content
+  .container.mycontainer
+    .sidebar.settingssidebar
+      ul.items
+        a.sideitem(href="/user/settings/"+user.id)
+          i.fas.fa-cog
+          li.item General
+        br
+        a.sideitem(href="/user/securitysettings/"+user.id)
+          i.fas.fa-cog
+          li.item Security
+        br        
+        a.sideitem(href="/user/blockingsettings/"+user.id)
+          i.fas.fa-cog
+          li.item Blocking
+        br
+        a.sideitem(href="/user/locationsettings/"+user.id)
+          i.fas.fa-cog
+          li.item Location
+        br
+        a.sideitem(href="/user/account/deletion/"+user.id)
+          i.fas.fa-cog
+          li.item Delete Account
+    .settingdiv
+      label.head GENERAL ACCOUNT SETTINGS
+      form(method="POST" action="/user/settings/"+user.id)
+        .namechange
+          label.edit Name: #{user.name}
+          a#bt1.edt(onclick='namechanger()') edit
+          br
+          label.edit New name: 
+          br
+          input.in(name='name' type='text')
+          button.registerbtn(type='submit')  SAVE 
+        .emailchange
+          label.edit Email: #{user.email}
+          a#bt2.edt(onclick='emailchanger()') edit
+          br
+          label.edit New email: 
+          br
+          input.in(name='email' type='email')
+          button.registerbtn(type='submit')  SAVE
+    script.
+      function namechanger(){
+      document.querySelector('.namechange').classList.toggle('changed');
+      let bt1 = document.querySelector('#bt1').textContent;
+      if(bt1 === "edit"){
+      document.querySelector('#bt1').textContent = "close";
+      }else{
+      document.querySelector('#bt1').textContent = "edit";
+      }
+      }
+      function emailchanger(){
+      document.querySelector('.emailchange').classList.toggle('changed');
+      let bt2 = document.querySelector('#bt2').textContent;
+      if(bt2 == "edit"){
+      document.querySelector('#bt2').textContent = "close";
+      }else{
+      document.querySelector('#bt2').textContent = "edit";
+      }
+      }
+    
+        

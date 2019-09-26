@@ -1,0 +1,8 @@
+extends home
+
+block content
+    .container
+        h(style="margin-left:40%") Are you sure you want to do this -_-
+        form(action="/user/account/deletion/"+cur_user.id method="POST")
+            button.registerbtn.btn.btn-danger(type="submit" style="width:100%") DELETE ACCOUNT
+        a.registerbtn.btn.btn-default(href='/' style="width:100%") GO BACK

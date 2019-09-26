@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+}
+.container{
+    background-color: black;
+}
+nav{
+    background-color: orange;
+}
+.sidebar{
+    border: 1px solid orange;
+}

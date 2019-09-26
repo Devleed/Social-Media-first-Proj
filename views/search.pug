@@ -1,0 +1,11 @@
+extends home
+
+block content
+    .container.mycontainer
+        .datadiv
+            each rslt in results
+                a.postitem(href="/user/account/"+rslt._id)
+                    li.list-group-item
+                        img.searchdisplay(src=rslt.profilePicture alt='dp')
+                        h #{rslt.name}
+                        

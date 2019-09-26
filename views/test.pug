@@ -1,0 +1,7 @@
+extends home
+
+block content 
+    .container
+        .datadiv
+            each friend in allFriends
+                li.list-group-item #{friend.name}

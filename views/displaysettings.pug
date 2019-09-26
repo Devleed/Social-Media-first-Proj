@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        script(src="https://kit.fontawesome.com/d24b18de31.js")
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/style.css")
+    
+        title Homepage
+    body
+        .container
+            #profileupdater
+                h1 Just One More Step
+                br
+                p Add a profile picture
+                br
+                i.fas.fa-user-circle.fa-7x
+                br
+                form(method="POST" enctype="multipart/form-data" action="/user/account/profilesettings/"+user.id)
+                    input(type="file" name="fileupload" id="fileupload")
+                    button.statusbtn(type="submit") Save
+                
+
+            
+    

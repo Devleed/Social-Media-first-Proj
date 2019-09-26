@@ -1,0 +1,33 @@
+extends home
+
+block content
+    .coverphoto 
+        span #{user.name}
+        .displaypicture
+            if user.profilePicture
+                img.profiledisplay(src=user.profilePicture)
+            else    
+                i.fas.fa-user-circle.profiledisplay.fa-7x
+    if same === false
+        if isFriends
+            button.addfriend 
+                i.fas.fa-check 
+                p Friends
+        else if alreadySent
+            button.addfriend Pending Request
+        else if isSent
+            each requ in isSent
+                if requ.status === 1
+                    a(href="/user/request/cancelled/"+requ._id)
+                        button.addfriend Cancel Request
+        else
+            form(action="/user/account/"+user._id method="POST")
+                button.addfriend(type="submit") Add Friend
+    .friends
+        
+    br
+    br
+    br
+    //- each name in allFriends
+    //-     p= name
+    //-     p #{name}

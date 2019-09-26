@@ -1,0 +1,46 @@
+extends home
+
+block content
+  .container.mycontainer
+    .sidebar.settingssidebar
+      ul.items
+        a.sideitem(href="/user/settings/"+user._id)
+          i.fas.fa-cog
+          li.item General
+        br
+        a.sideitem(href="/user/securitysettings/"+user._id)
+          i.fas.fa-cog
+          li.item Security
+        br        
+        a.sideitem(href="/user/blockingsettings/"+user._id)
+          i.fas.fa-cog
+          li.item Blocking
+        br
+        a.sideitem(href="/user/locationsettings/"+user._id)
+          i.fas.fa-cog
+          li.item Location
+    .settingdiv
+      label.head SECURITY SETTINGS
+      form(method="POST" action="/user/securitysettings/"+user._id)
+        .namechange
+          label.edit Password
+          a#bt3.edt(onclick='passchanger()') edit
+          br
+          label.edit Current Password: 
+          input.in(name='oldpass' type='password' placeholder="Enter Your Current Password")
+          label.edit New Password: 
+          input.in(name='newpass' type='password' placeholder="Enter New Password")
+          label.edit Re-enter Password: 
+          input.in(name='repass' type='password' placeholder="Re-enter Password")
+          button.registerbtn(type='submit')  SAVE 
+    script.
+      function passchanger(){
+      document.querySelector('.namechange').classList.toggle('passchanged');
+      let bt3 = document.querySelector('#bt3').textContent;
+      if(bt3 === "edit"){
+      document.querySelector('#bt3').textContent = "close";
+      }else{
+      document.querySelector('#bt3').textContent = "edit";
+      }
+      }
+      

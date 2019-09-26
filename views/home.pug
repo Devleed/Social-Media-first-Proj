@@ -1,0 +1,153 @@
+doctype html
+html
+  head
+    script(src="https://kit.fontawesome.com/d24b18de31.js")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/style.css")
+    link(href="https://fonts.googleapis.com/css?family=Freckle+Face&display=swap" rel="stylesheet")
+
+    title Homepage
+  body
+    nav#navbar
+      .navdiv
+        a.logo(href="/")
+          //- i.fab.fa-phoenix-framework.fa-2x
+          i.fab.fa-facebook-square.fa-2x
+        //-----------------------------------------------------------------------------------------------
+        if loggedUser
+          div.search-container
+            form(action='/search' method='GET')
+              input.fieldSearch(type='text' name='search' placeholder='Search..')
+              button(type='submit')
+                i.fas.fa-search.fa-1x
+            .searchResults
+              ul.searchItems
+                li Home
+            
+          //-----------------------------------------------------------------------------------------------
+          button.friendrequests(style="float:right" onclick="show()")
+            if requests
+              if requests.length !== 0
+                span.requestNumbers #{requests.length}
+            i.fas.fa-user-friends.fa-1x
+            .content
+              div.requestHeader Friend Requests
+              if requests
+                if requests.length !== 0
+                  each req in requests
+                    if req.status === 1
+                      br
+                      div
+                        a(href="/user/account/"+req.requestor style='float:left;color:#FB7200;') #{req.requestorName}
+                        a(href="/user/request/rejected/"+req._id style='color:red') Reject
+                        a(href="/user/request/accepted/"+req._id style='color:green') Accept
+                else 
+                  p() no requests
+          //-----------------------------------------------------------------------------------------------
+          button.dropbtn(style="float:right" onclick="showOptions()")
+            i.fas.fa-sliders-h.fa-1x
+            .dropdown-content
+              a.entry(href='/user/settings/'+loggedUser.id) Account Settings
+              a.entry(href='/user/logout') Logout
+        //-----------------------------------------------------------------------------------------------
+        else
+          a.entry(style="float:right" href="/user/login") Login
+    //----------------------------------------------------------------------------------------------- NAVBAR ENDED
+    .container.msg
+      div.message
+        != messages('message',locals)
+        if errors
+          each error,i in errors
+            div(class='alert alert-warning alert-dismissible fade show') #{error.msg}
+            //----------------------------------------------------------------------------------------------- FLASH MESSAGE CONTAINER ENDED
+    block content
+        
+      if loggedUser
+        .container.mycontainer
+          .sidebar
+            ul.items
+              a.sideitem(href="/user/account/"+user.id)
+                i.fas.fa-user-circle
+                li.item #{loggedUser.name}
+              br
+              a.sideitem(href="/")
+                i.fas.fa-book
+                li.item NewsFeed 
+              br
+              a.sideitem(href="/user/messaging/"+loggedUser.id)
+                i.fas.fa-comment
+                li.item Messages
+              br
+              a.sideitem(href="/News"+loggedUser.id)
+                i.fas.fa-bomb
+                li.item Explore
+              br
+          //-----------------------------------------------------------------------------------------------
+          .datadiv
+            if loggedUser
+              .statdiv
+                form#statusform(method="POST" enctype='multipart/form-data' action="/"+loggedUser.id)
+                  div#statushead
+                    i.fas.fa-plus
+                    p(onclick="divchanger()") Create Post
+                    i.fas.fa-times-circle(onclick="divcloser()")
+                  div#statusbox
+                    i.fas.fa-user-circle.statpsn.fa-3x
+                    textarea#status(name="status" cols="56" rows="5" onclick="divchanger()" placeholder="What's on your mind? "+loggedUser.name)
+                  br
+                  input(type="file" name="fileupload"  id="fileupload")
+                  br
+                  button.statusbtn(type='submit') Post
+            //-----------------------------------------------------------------------------------------------
+            br   
+            if data  
+              each post in data
+                li.list-group-item
+                  a.postitem(href="/post/"+post._id)
+                    div.statusdiv #{post.author} Posted 
+                      span.postdate #{post.datePosted.date}
+                      br
+                      span.postbody #{post.body}
+                      br
+                if post.image
+                  img.statimg(src=post.image alt="post image")
+
+    script(src="/jquery/dist/jquery.js")
+    script(src="/main.js")
+    script(src="/diss.js")
+    script(src="/socket.io/socket.io.js")
+    script(src="/chat.js")
+    script.
+      function divchanger(){
+      document.querySelector('.statdiv').classList.add('statuschange');
+      document.querySelector('.fa-times-circle').style.display = "inline-block";
+      }
+      function divcloser(){
+      document.querySelector('.statdiv').classList.remove('statuschange');
+      document.querySelector('.fa-times-circle').style.display = "none";
+      }
+      function show(){
+        var requests = document.querySelector('.content');
+        if($('.dropdown-content').hasClass('shown')){
+          $('.dropdown-content').removeClass('shown');
+        }
+        requests.classList.toggle('shown');
+      }
+      function showOptions(){
+        var requests = document.querySelector('.dropdown-content');
+        if($('.content').hasClass('shown')){
+          $('.content').removeClass('shown');
+        }
+        requests.classList.toggle('shown');
+      }
+      //- function changetheme(){
+      //-   //- var lnk = document.createElement('link');
+      //-   //- lnk.type='text/css';
+      //-   //- lnk.href='/darkstyle.css';
+      //-   //- lnk.rel='stylesheet';
+      //-   //- document.getElementsByTagName('head')[0].appendChild(lnk);
+      //-   localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')
+      //- }
+      //- document.addEventListener('DOMContentLoaded', (event) => {
+      //- ((localStorage.getItem('mode') || 'dark') === 'dark') ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')
+      //- })

@@ -1,0 +1,36 @@
+extends home
+
+block content
+    .container.mycontainer
+        .sidebar
+            ul.items
+                a.sideitem(href="/account/"+user._id)
+                    i.fas.fa-address-card
+                    li.item #{user.name}
+                br
+                a.sideitem(href="/")
+                    i.fas.fa-book
+                    li.item NewsFeed 
+                br
+                a.sideitem(href="/user/messaging/"+user._id)
+                    i.fas.fa-comment
+                    li.item Messages
+                br
+                a.sideitem(href="/News"+user._id)
+                    i.fas.fa-bomb
+                    li.item Explore
+        .datadiv
+            li.list-group-item
+                div.statusdiv #{post.author} Posted 
+                    span.postdate #{post.datePosted.date}
+                    br
+                    span.postdate #{post.datePosted.time.hours} : #{post.datePosted.time.mins} : #{post.datePosted.time.secs}
+                    br
+                    span.postbody #{post.body}
+            if post.image
+                img.statimg(src=post.image alt="post image")
+            if authorized
+                a(class="btn btn-primary bedt" href="/post/edit/"+post._id)
+                    i.fas.fa-ellipsis-h
+                a(class="btn btn-danger bedt delete-post" href="#" dataid=post._id)
+                    i.fas.fa-trash-alt

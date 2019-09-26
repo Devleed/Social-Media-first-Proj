@@ -1,0 +1,16 @@
+extends home
+
+block content
+    form(method="POST" action="/user/login")
+        .container.loginform
+            label Email
+            br
+            input(type='text', placeholder='Enter Email', name='email')
+            br
+            label Password
+            br
+            input(type='password', placeholder='Enter Password', name='password')
+            br
+            button.registerbtn(type='submit') Login
+            br
+            a(href="/user/register") Dont have an account? Register

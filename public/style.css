@@ -1,0 +1,884 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eeeff4;
+  color: #fff;
+  margin: 0;
+  font-size: 13px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: #eeeff4;
+}
+
+form {
+  font-size: 13px;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password],
+input[type=email] {
+  color: black;
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  background-color: #eeeff4;
+  border: none;
+  border-radius: 7px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  background-color: #eeeff4;
+  outline: none;
+  border-color: #3B5998;
+  box-shadow: 0 0 10px #3B5998;
+}
+
+.in {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  background-color: #eeeff4;
+}
+
+.in:focus {
+  background-color: #eeeff4;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.signin {
+  background-color: #eeeff4;
+  text-align: center;
+}
+
+.danger {
+  color: #f1f1f1;
+}
+
+
+
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success_msg {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.logout {
+  float: right;
+}
+
+.send {
+  border: node;
+  padding: 5px;
+  width: 100%;
+  margin: 5px;
+}
+
+.send:focus {
+  outline: none;
+  border: none;
+  background-color: black;
+}
+
+nav {
+  width: 100%;
+  height: 40px;
+  display: block;
+  background-color: #3B5998;
+  padding: 10px 10px 10px 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  z-index: 1;
+}
+
+.edit {
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.466);
+  border-radius: 2px;
+}
+
+.edt {
+  padding: 0;
+  margin-left: 40%;
+  float: right;
+  cursor: pointer;
+  color: blue;
+  text-decoration: none;
+}
+
+.namechange {
+  padding: 5px;
+  background-color: #eeeff4;
+  border-radius: 2px;
+  height: 40px;
+  transition: height 1s, background-color 1s;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+
+.emailchange {
+  padding: 5px;
+  background-color: #eeeff4;
+  border-radius: 2px;
+  height: 40px;
+  transition: height 1s, background-color 1s;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+
+}
+
+.changed {
+  background-color: #eeeff4;
+  height: 300px;
+}
+
+.in {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  background-color: #eeeff4;
+  border: none;
+}
+
+.in:focus {
+  background-color: #eeeff4;
+  outline: none;
+}
+
+/*---------------------------------------------------------------- SIDEBAR SETTINGS ---------------------------------------------------------*/
+.sidebar {
+  border: none;
+  border-radius: 7px;
+  position: fixed;
+  float: left;
+  width: 200px;
+  height: 600px;
+  background-color: #eeeff4;
+  color: black;
+}
+
+.settingssidebar {
+  border: none;
+  border-radius: 7px;
+  padding-right: 15px;
+  border-right: 1px solid black;
+}
+
+.items {
+  padding: 0;
+  float: left;
+  list-style-type: none;
+  margin: 0px;
+}
+
+.item {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 4px;
+  padding: 5px;
+}
+
+.sideitem {
+  padding: 5px 30px 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.sideitem:hover {
+  text-decoration: none;
+  color: black;
+  background-color: #F0FFFF;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+.datadiv {
+  background-color: white;
+  width: 500px;
+  position: relative;
+  margin-left: 200px;
+  margin-right: 0px;
+  padding-left: 15px;
+}
+
+.settingdiv {
+  background-color: #eeeff4;
+  width: 500px;
+  position: relative;
+  margin-left: 200px;
+  padding-left: 15px;
+}
+
+.head {
+  border-bottom: 1px solid gray;
+}
+
+.navdiv {
+  width: 100%;
+  padding-right: 190px;
+  padding-left: 240px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.passchanged {
+  background-color: #eeeff4;
+  height: 500px;
+}
+
+/*--------------------------------------------------------------- POSTS SETTINGS -----------------------------------------------------------*/
+.postitem:hover {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+}
+
+.postbody {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+
+.postdate {
+  float: right;
+  font-size: 9px;
+  color: grey;
+}
+
+.statimg {
+  border: none;
+  border-top: none;
+  margin-top: 0;
+  height: 400px;
+  width: 466px;
+}
+
+.list-group-item {
+  color: black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: none;
+  border-left:none;
+  background-color: white;
+  width: 466px;
+  margin: 20px 0px 0px 0px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+#homenav {
+  margin: 0;
+}
+
+.message {
+  background-color: #eeeff4;
+}
+
+.container {
+  padding: 16px;
+}
+
+p {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px 0px 0px 7px;
+}
+
+.fa-hips {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+}
+
+.entry {
+  position: relative;
+  display: inline-block;
+  padding: 6px;
+  color: black;
+  text-decoration: none;
+}
+
+.entry:hover {
+  background-color: #ff8800;
+  cursor: pointer;
+  color: black;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.loginform {
+  width: 500px;
+  position: relative;
+  left: 420px;
+  top: 30px;
+}
+
+/*----------------------------------------- MAIN LOGO  -------------------------------------------*/
+.logo {
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.logo:hover {
+  color: white;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky+.container {
+  padding-top: 75px;
+}
+
+.fa-times-circle {
+  cursor: pointer;
+  margin-left: 340px;
+  display: none;
+}
+
+.input-container {
+  max-width: 300px;
+  background-color: #eeeff4;
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+}
+
+input[type='file'] {
+  border: none;
+  background-color: #eeeff4;
+  color: black;
+  width: 85px;
+  margin: 3px 0px 15px 30px;
+}
+
+input[type='file']:hover {
+  background-color: #eeeff4;
+}
+
+.file-info {
+  font-size: 0.9em;
+}
+
+@media (max-width: 300px) {
+  button {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+  }
+
+  .file-info {
+    display: block;
+    margin: 10px 5px;
+  }
+}
+
+.delete-post {
+  float: right;
+}
+
+.edtstatimg {
+  width: 465px;
+  margin-top: 10px;
+}
+
+/*---------------------------------------------- StatusBox Settings -------------------------------------------------------------*/
+/*-- Textarea Styling --*/
+#status {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  position: relative;
+  resize: none;
+  border: none;
+  float: right;
+  box-shadow: none;
+  outline: none;
+}
+
+#edtstatus {
+  padding: 10px;
+  position: relative;
+  resize: none;
+  border: none;
+  float: left;
+  background-color: #eeeff4;
+  color: black;
+}
+
+#status:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+/*-- Status Form Styling --*/
+#statusform {
+  position: relative;
+  margin: 0;
+}
+
+/*-- Status Header Styling --*/
+#statushead {
+  border-bottom: none;
+  background-color: white;
+  width: 466px;
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/*-- Logo and Textarea div Styling --*/
+#statusbox {
+  height: 130px;
+  color: black;
+  border-bottom: 1px solid rgb(187, 181, 181);
+}
+
+/*-- Status Person Logo Styling --*/
+.statpsn {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+/*-- Complete Status Div Styling --*/
+
+.statdiv {
+  border: none;
+  background-color: white;
+  width: 466px;
+  height: 170px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+.statuschange {
+  height: 275px;
+}
+
+.statusdiv:hover {
+  color: #3B5998;
+}
+
+/*---------------------------------------------- Account Page Styling -------------------------------------------------------------*/
+/*-- Cover Div --*/
+.coverphoto {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(141, 141, 141);
+  z-index: -1;
+}
+
+.coverphoto span {
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+  position: absolute;
+  margin-top: 160px;
+  margin-left: 165px;
+}
+
+/*-- Profile Picture --*/
+.profiledisplay {
+  margin-top: 160px;
+  margin-left: 60px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.friends{
+  width: 480px;
+  margin-left: 70px;
+  margin-top: 130px;
+  position: relative;
+  background-color: rgb(25, 26, 27);
+  border: none;
+}
+
+/*---------------------------------------------- Display Image Checker -------------------------------------------------------------*/
+/*-- Main div --*/
+#profileupdater {
+  padding: 15px;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  background-color: #eeeff4;
+}
+
+#profileupdater i {
+  margin-left: 40%;
+}
+
+#profileupdater input[type=file] {
+  margin-left: 40%;
+}
+
+/*---------------------------------------------- All Buttons Styling -------------------------------------------------------------*/
+/*-- Set a style for the submit button --*/
+.registerbtn {
+  background-color: #3B5998;
+  color: black;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/*-- Editing form of post button --*/
+.edtstatusbtn {
+  background-color: #3B5998;
+  color: black;
+  padding: 3px 10px;
+  margin: 5px 5px 5px 0px;
+  border: none;
+  opacity: 0.9;
+  width: 465px;
+}
+
+.btn-danger {
+  color: black;
+}
+
+.browse-btn {
+  background: #03A595;
+  color: #fff;
+  min-height: 35px;
+  padding: 10px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.browse-btn:hover {
+  background: #4ec0b4;
+}
+
+/*-- Status Button Form Styling --*/
+.statusbtn {
+  background-color: #3B5998;
+  color: black;
+  padding: 3px 10px;
+  margin: 5px 5px 5px 10px;
+  border: none;
+  opacity: 0.9;
+  width: 445px;
+}
+
+.statusbtn:hover {
+  opacity: 1;
+}
+
+.statusbtn:disabled {
+  background-color: rgb(150, 150, 150);
+}
+
+.bedt {
+  background-color: #eeeff4;
+  color: #3B5998;
+  border: 1px solid #3B5998;
+  margin: 5px 17px 0px 0px;
+}
+
+/*-- Add friend Button --*/
+.addfriend {
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+}
+
+
+/*----------------------------------------------------------- DROPDOWN FOR FRIEND REQUESTS ---------------------------------------------*/
+.friendrequests {
+  margin-top: 0px;
+  margin-left: 930px;
+  position: absolute;
+  display: inline-block;
+  background-color: #3B5998;
+  color: white;
+  border: none;
+}
+
+.fa-user-friends {
+  z-index: -1;
+}
+
+.requestNumbers {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: red;
+  color: black;
+  font-size: 8px;
+  text-align: center;
+  z-index: 1;
+}
+
+.content {
+  border: none;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #eeeff4;
+  min-width: 460px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  color: black;
+  z-index: 1;
+}
+
+.requestHeader {
+  background-color: #eeeff4;
+  border-bottom: none;
+}
+
+.content div {
+  height: 40px;
+  width: 100%;
+  padding: 8px;
+}
+
+.content p {
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  margin: 4px;
+}
+
+.content a {
+  margin-left: 5px;
+  float: right;
+  color: black;
+  text-decoration: none;
+}
+
+.content a:hover {
+  cursor: pointer;
+}
+
+/*----------------------------------------------------------- DROPDOWN FOR ACCOUNT SETTINGS ---------------------------------------------*/
+.dropbtn {
+  margin-top: 0px;
+  margin-left: 960px;
+  position: absolute;
+  display: inline-block;
+  background-color: #3B5998;
+  color: white;
+  border: none;
+}
+
+.dropdown-content {
+  border: none;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #eeeff4;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #eeeff4;
+  color: #3B5998;
+}
+
+.shown {
+  display: block;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------- All Divs Styling -------------------------------------------------------------*/
+/*-- Extra div for searching or other stuff --*/
+.extra {
+  position: fixed;
+  margin-left: 800px;
+  background-color: rgb(245, 245, 245);
+  color: black;
+  float: right;
+  height: 600px;
+  width: auto;
+}
+
+.searchField {
+  height: 20px;
+  width: 50%;
+  border: none;
+  background-color: black;
+}
+
+.searchField:focus {
+  border: none;
+}
+
+/*---------------------------------------------- Styling Search Field -------------------------------------------------------------*/
+.navdiv .search-container {
+  position: absolute;
+  top: 0px;
+  /* height: 10px; */
+  width: 400px;
+  margin-left: 80px;
+  display: inline-block;
+}
+.searchResults{
+  width: 320px;
+  max-height: 350px;
+  position: relative;
+  background: white;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.navdiv input[type=text] {
+  padding: 4px;
+  margin: 0;
+  font-size: 13px;
+  border: none;
+}
+
+.navdiv input[type=text]:focus {
+  background-color: #eeeff4;
+  border: none;
+  color: black;
+}
+
+.navdiv .search-container button {
+  padding: 3px 5px;
+  margin-top: 0px;
+  margin-right: 0px;
+  background: #ddd;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+.navdiv .search-container button:hover {
+  background: #ccc;
+}
+
+.searchdisplay {
+  margin-right: 10px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.mainheader {
+  height: 200px;
+  width: 200px;
+  float: left;
+  font-size: 40px;
+  font-family: 'Knewave', cursive;
+  margin-top: 50px;
+  color: #3B5998
+}
+
+.logo div {
+  font-family: 'Freckle Face', cursive;
+  color: #eeeff4;
+  font-size: 30px;
+}
+.logo:hover{
+  text-decoration: none;
+}
+/*============================================================== CONTACT PAGE ============================================================*/
+.textMessage{
+  width: 80%;
+  height: 140px;
+  position: relative;
+  /* top: 400px; */
+  background-color: black;
+}
+#allmessages{
+  width: 80%;
+  height: 450px;
+  border: none;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#messagedUsers{
+  width: 400px;
+  height: 600px;
+  float: right;
+  border: none
+}
+.mesg{
+  text-align: right;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  background: #DFDFDF;
+  color: black;
+  
+}
+#sendMessagebtn{
+  border: none;
+  width: 100%;
+  background: #3B5998;
+}
+.friendlist{
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
+  height: 40px;
+  border-bottom: 1px solid #3B5998;
+  list-style-type: none;
+}
+#friendsmessages{
+  cursor: pointer;
+}
+.ownmesg{
+  
+  margin-left: 660px;
+  background: #3B5998;
+  text-align: left;
+  float: right;
+}
