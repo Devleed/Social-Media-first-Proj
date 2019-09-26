@@ -110,78 +110,79 @@ app.use("/post", posts);
 //   });
 
 app.get("/", async (req, res) => {
-  try {
-    const loggedUser = await userLoggedIn(req, res);
-    if (loggedUser === null || loggedUser === undefined) res.render("register");
-    else {
-      if (!loggedUser.profilePicture)
-        res.render("displaysettings", {
-          loggedUser
-        });
-      else {
-        const post = await Post.find({});
-        let friendPosts = post.filter(p => {
-          return loggedUser.friends.includes(p.authorid);
-        });
-        let myownPosts = post.filter(p => {
-          return loggedUser.id === p.authorid;
-        });
-        let allPosts = myownPosts.concat(friendPosts);
-        let sorted = sortingPosts(allPosts);
-        const request = await requestRecieved(loggedUser);
-        let pendingRequest = request.filter(r => {
-          return r.status === 1;
-        });
-        let acceptedRequest = request.filter(r => {
-          return r.status === 2;
-        });
-        if (acceptedRequest.length !== 0) {
-          addFriends(acceptedRequest, pendingRequest, res, sorted);
-        } else {
-          if (req.query.name) {
-            var users = await User.find({});
-            var options = {
-              keys: ["name", "email"],
-              id: "name"
-            };
-            var fuse = new Fuse(users, options);
-            var results = fuse.search(req.query.name);
-            return res.send(results)
+  res.send('Hello')
+  // try {
+  //   const loggedUser = await userLoggedIn(req, res);
+  //   if (loggedUser === null || loggedUser === undefined) res.render("register");
+  //   else {
+  //     if (!loggedUser.profilePicture)
+  //       res.render("displaysettings", {
+  //         loggedUser
+  //       });
+  //     else {
+  //       const post = await Post.find({});
+  //       let friendPosts = post.filter(p => {
+  //         return loggedUser.friends.includes(p.authorid);
+  //       });
+  //       let myownPosts = post.filter(p => {
+  //         return loggedUser.id === p.authorid;
+  //       });
+  //       let allPosts = myownPosts.concat(friendPosts);
+  //       let sorted = sortingPosts(allPosts);
+  //       const request = await requestRecieved(loggedUser);
+  //       let pendingRequest = request.filter(r => {
+  //         return r.status === 1;
+  //       });
+  //       let acceptedRequest = request.filter(r => {
+  //         return r.status === 2;
+  //       });
+  //       if (acceptedRequest.length !== 0) {
+  //         addFriends(acceptedRequest, pendingRequest, res, sorted);
+  //       } else {
+  //         if (req.query.name) {
+  //           var users = await User.find({});
+  //           var options = {
+  //             keys: ["name", "email"],
+  //             id: "name"
+  //           };
+  //           var fuse = new Fuse(users, options);
+  //           var results = fuse.search(req.query.name);
+  //           return res.send(results)
 
-            // var books = [{
-            //     'ISBN': 'A',
-            //     'title': "Old Man's War",
-            //     'author': 'John Scalzi'
-            //   }, {
-            //     'ISBN': 'B',
-            //     'title': 'The Lock Artist',
-            //     'author': 'Steve Hamilton'
-            //   }]
-            //   var options = {
-            //     keys: ['title', 'author'],
-            //     id: 'author'
-            //   }
-            //   var fuse = new Fuse(books, options)
-            //   let ans = fuse.search('j')
-            //   console.log(ans)
-          }else{
-            res.render("home", {
-                loggedUser,
-                data: sorted,
-                requests: request
-          });
-          }
-          //   res.render("home", {
-          //     loggedUser,
-          //     data: sorted,
-          //     requests: request
-          //   });
-        }
-      }
-    }
-  } catch (err) {
-    throw err;
-  }
+  //           // var books = [{
+  //           //     'ISBN': 'A',
+  //           //     'title': "Old Man's War",
+  //           //     'author': 'John Scalzi'
+  //           //   }, {
+  //           //     'ISBN': 'B',
+  //           //     'title': 'The Lock Artist',
+  //           //     'author': 'Steve Hamilton'
+  //           //   }]
+  //           //   var options = {
+  //           //     keys: ['title', 'author'],
+  //           //     id: 'author'
+  //           //   }
+  //           //   var fuse = new Fuse(books, options)
+  //           //   let ans = fuse.search('j')
+  //           //   console.log(ans)
+  //         }else{
+  //           res.render("home", {
+  //               loggedUser,
+  //               data: sorted,
+  //               requests: request
+  //         });
+  //         }
+  //         //   res.render("home", {
+  //         //     loggedUser,
+  //         //     data: sorted,
+  //         //     requests: request
+  //         //   });
+  //       }
+  //     }
+  //   }
+  // } catch (err) {
+  //   throw err;
+  // }
 });
 app.post("/:id", upload.single("fileupload"), (req, res) => {
   if (!req.body.status && !req.file) {
