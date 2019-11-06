@@ -23,7 +23,7 @@
     "http": "0.0.0",
     "jsonwebtoken": "^8.5.1",
     "minisearch": "^2.0.6",
-    "mongoose": "^5.6.4",
+    "mongoose": "^5.7.5",
     "multer": "^1.4.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
